@@ -9,7 +9,6 @@
 #define outpin     7
 #define light      3
 #define motor2     2
-#define pir        4
 #define doorbeeper 5
 
 Servo door;
@@ -28,7 +27,6 @@ void setup() {
   pinMode(inputpin, INPUT);
   pinMode(outpin, INPUT);
   door.attach(motor);
-  window.attach(motor2);
   pinMode(doorbeeper, OUTPUT);
   pinMode(pir, INPUT);
   pinMode(light, OUTPUT);
@@ -92,10 +90,6 @@ void loop() {
     lightoff();
   }
   
-  int pirSensor = digitalRead(pir);
-  if (pirSensor == HIGH) {
-    windowclose();
-  }
 
   if (checkRFIDAccess()) { // Access granted by RFID card
     dooropen();
